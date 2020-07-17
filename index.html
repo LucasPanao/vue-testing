@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <script type="text/javascript" src="https://unpkg.com/vue"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VueJs - Test</title>
 </head>
@@ -11,5 +12,20 @@
         <p>Meu nome é {{nome}}</p>
         <input v-on:input="mudarNome">
     </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data:{
+                mensagem: 'Hello world',
+                nome: ''
+            },
+            methods: {
+                mudarNome: function(event){
+                    this.nome = event.target.value;
+                }
+            } 
+        });
+    </script>
 </body>
 </html>
