@@ -8,18 +8,21 @@
 </head>
 <body>
     <div id="app">
-        <p>Meu nome é {{nome}} || {{idade()}}</p>
+        <p>Meu nome é {{nome}} || {{idade_()}}</p>
+        <a v-bind:href="docs">Vue.Js</a>
     </div>
 
 <script>
 new Vue({
     el: '#app',
     data:{
-        nome: 'Lucas'
+        nome: 'Lucas',
+        idade: '21',
+        docs: 'http://vuejs.org'
         },
         methods: {
-            idade: function(){
-                return '21';
+            idade_: function(){
+                return this.idade;
             }
         }
     });
