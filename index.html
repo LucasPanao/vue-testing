@@ -9,6 +9,7 @@
 <body>
     <div id="app">
         <p>Meu nome é {{nome}} || {{idade_()}}</p>
+        <p>Sobrenome: <span v-text="Sobrenome"></span></p>
         <a v-bind:href="docs">Vue.Js</a>
     </div>
 
@@ -18,7 +19,8 @@ new Vue({
     data:{
         nome: 'Lucas',
         idade: '21',
-        docs: 'http://vuejs.org'
+        docs: 'http://vuejs.org',
+        Sobrenome: 'Panão'
         },
         methods: {
             idade_: function(){
