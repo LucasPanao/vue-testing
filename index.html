@@ -8,23 +8,20 @@
 </head>
 <body>
     <div id="app">
-        <p>{{mensagem}}</p>
-        <p>Meu nome é {{nome}}</p>
-        <input v-on:input="mudarNome">
+        <p>Meu nome é {{nome}} || {{idade()}}</p>
     </div>
 
 <script>
 new Vue({
     el: '#app',
     data:{
-        mensagem: 'Hello world',
-        nome: ''
+        nome: 'Lucas'
         },
         methods: {
-            mudarNome: function(event){
-            this.nome = event.target.value;
+            idade: function(){
+                return '21';
             }
-        } 
+        }
     });
 </script>
 </body>
