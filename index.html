@@ -8,27 +8,19 @@
 </head>
 <body>
     <div id="app">
-        <button v-on:click="incrementar">clique aqui</button>
-        <p>botao clicado {{ cliques }} vezes</p>
-        <p v-on:mousemove="atualizarCo"> Coordenadas x: {{x}} e y: {{y}}</p>
+        <input v-on:blur="exibirNome('Meu nome é: ', $event)">
+        <p>{{nome}}</p>
     </div>
 
 <script>
 new Vue({
     el: '#app',
     data: {
-        nome: 'lucas',
-        cliques: 0,
-        x: 0,
-        y: 0,
+        nome: ''
     },
     methods: {
-        incrementar: function(){
-            this.cliques++;
-        },
-        atualizarCo: function(event){
-            this.x = event.clientX;
-            this.y = event.clientY;
+        exibirNome: function(texto, event){
+            this.nome = texto + event.target.value;
         }
     }
 })
