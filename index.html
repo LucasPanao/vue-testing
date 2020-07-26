@@ -11,6 +11,7 @@
         <p v-once> nome inteiro {{nome}} {{Sobrenome}}</p>
         <p>Meu nome é {{getNome()}} e tenho {{idade_()}}</p>
         <p>Cidade: {{cidade}}</p>
+        <p v-html= "cidade"></p>
         <a v-bind:href="docs">Vue.Js</a>
     </div>
 
@@ -20,7 +21,7 @@ new Vue({
     data:{
         nome: 'Lucas',
         idade: '21',
-        cidade: 'santos',
+        cidade: '<span style="color: red">santos<span>',
         docs: 'http://vuejs.org',
         Sobrenome: 'Panão'
         },
