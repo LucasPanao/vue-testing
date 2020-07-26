@@ -8,8 +8,9 @@
 </head>
 <body>
     <div id="app">
-        <p>Meu nome é {{nome}} || {{idade_()}}</p>
-        <p>Sobrenome: <span v-text="Sobrenome"></span></p>
+        <p v-once> nome inteiro {{nome}} {{Sobrenome}}</p>
+        <p>Meu nome é {{getNome()}} e tenho {{idade_()}}</p>
+        <p>Cidade: {{cidade}}</p>
         <a v-bind:href="docs">Vue.Js</a>
     </div>
 
@@ -26,6 +27,11 @@ new Vue({
         methods: {
             idade_: function(){
                 return this.idade;
+            },
+            getNome: function(){
+                this.nome = 'Luquinhas';
+                return this.nome
+
             }
         }
     });
