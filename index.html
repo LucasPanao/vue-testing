@@ -8,34 +8,23 @@
 </head>
 <body>
     <div id="app">
-        <p v-once> nome inteiro {{nome}} {{Sobrenome}}</p>
-        <p>Meu nome é {{getNome()}} e tenho {{idade_()}}</p>
-        <p>Cidade: {{cidade}}</p>
-        <p v-html= "cidade"></p>
-        <a v-bind:href="docs">Vue.Js</a>
+        <button v-on:click="incrementar">clique aqui</button>
+        <p>botao clicado {{ cliques }} vezes</p>
     </div>
 
 <script>
 new Vue({
     el: '#app',
-    data:{
-        nome: 'Lucas',
-        idade: '21',
-        cidade: '<span style="color: red">santos<span>',
-        docs: 'http://vuejs.org',
-        Sobrenome: 'Panão'
-        },
-        methods: {
-            idade_: function(){
-                return this.idade;
-            },
-            getNome: function(){
-                this.nome = 'Luquinhas';
-                return this.nome
-
-            }
+    data: {
+        nome: 'lucas',
+        cliques: 0
+    },
+    methods: {
+        incrementar: function(){
+            this.cliques++;
         }
-    });
+    }
+})
 </script>
 </body>
 </html>
