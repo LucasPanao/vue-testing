@@ -8,19 +8,20 @@
 </head>
 <body>
     <div id="app">
+        <a v-bind:href="site">LucasPanao</a>
         <button v-on:click.left="onClick">Botão esquerdo</button>
-        <br>
-        <button v-on:click.middle="onClick">Botão do meio</button>
-        <br>
-        <button v-on:click.right="onClick">Botão direito</button>
-        <br>
-        <button v-on:click.right.prevent="onClick">Botão direito S/Menu</button>
+        <hr>
+        <a :href="site">LucasPanao</a>
+        <button @click.left="onClick">Botão esquerdo</button>
     </div>
 
 <script>
 
 new Vue ({
     el: '#app',
+    data:{
+        site:'http://panao.com.br'
+    },
     methods: {
         onClick: function(event){
             console.log('Botão ' + event.button + ' pressionado');
