@@ -8,8 +8,12 @@
 </head>
 <body>
     <div id="app">
-        <p>{{nome}} => {{ nomeInvertido }}</p>
-        <input @keyup.enter="alterarNome">
+        <p>nome original: {{nome}}</p>
+        <p>nome invertido (computed): {{nomeInvertido}}</p>
+        <p>nome invertido (methodo): {{nomeInvertidoMethod()}}</p>
+        <p>Nome Inteiro: {{NomeInteiro ? 'lucas panao' : 'panao'}} <button @click="NomeInteiro = !NomeInteiro">Alterar Nome Normal/Inteiro</button> </p>
+
+        <input placeholder="Insira seu nome aqui" @keyup.enter="alterarNome">
     </div>
 
 <script>
@@ -17,17 +21,24 @@
 new Vue ({
     el: '#app',
     data:{
-        nome: 'lucas panao'
+        nome: 'lucas',
+        NomeInteiro: false
     },
     computed: {
         nomeInvertido: function(){
+            console.log('computed')
             return this.nome.split('').reverse().join('');
         }
     },
     methods: {
         alterarNome: function(event){
             this.nome = event.target.value;
-            }
+        },
+        nomeInvertidoMethod: function(){
+            console.log('method')
+            return this.nome.split('').reverse().join('');
+        }
+        
         }
 })
 </script>
