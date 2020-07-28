@@ -8,11 +8,8 @@
 </head>
 <body>
     <div id="app">
-        <a v-bind:href="site">LucasPanao</a>
-        <button v-on:click.left="onClick">Botão esquerdo</button>
-        <hr>
-        <a :href="site">LucasPanao</a>
-        <button @click.left="onClick">Botão esquerdo</button>
+        <p>{{nome}} => {{ nomeInvertido }}</p>
+        <input @keyup.enter="alterarNome">
     </div>
 
 <script>
@@ -20,13 +17,18 @@
 new Vue ({
     el: '#app',
     data:{
-        site:'http://panao.com.br'
+        nome: 'lucas panao'
+    },
+    computed: {
+        nomeInvertido: function(){
+            return this.nome.split('').reverse().join('');
+        }
     },
     methods: {
-        onClick: function(event){
-            console.log('Botão ' + event.button + ' pressionado');
+        alterarNome: function(event){
+            this.nome = event.target.value;
+            }
         }
-    }
 })
 </script>
 </body>
